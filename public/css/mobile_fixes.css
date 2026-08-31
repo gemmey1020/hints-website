@@ -1,0 +1,523 @@
+
+/* ════════════════════════════════════════════════════════════
+   HINTS STUDIO — COMPREHENSIVE MOBILE RESPONSIVENESS
+   Teal Architectural Audit — August 2026
+   ════════════════════════════════════════════════════════════
+   
+   This file is the SINGLE SOURCE OF TRUTH for all mobile
+   responsive overrides. It loads LAST in the cascade
+   (after company_profile.css and responsive.css) so it
+   wins every specificity race without needing !important
+   on most rules.
+   
+   Breakpoints:
+     1024px — Tablets / small laptops (layout stacking)
+      768px — Mobile landscape / large phones
+      480px — Mobile portrait (final squeeze)
+   ════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────
+   0. GLOBAL SAFETY NET
+   ───────────────────────────────────────────────────────── */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   1. TOUCH DEVICE: DISABLE CUSTOM JS CURSORS
+   The kinetic cursors track mousemove — they are
+   meaningless on touch and would leave ghost elements.
+   ───────────────────────────────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+    #discipline-cursor,
+    #vault-cursor {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    /* Restore native touch cursors */
+    .cursor-hide-native {
+        cursor: auto !important;
+    }
+}
+
+
+/* ═════════════════════════════════════════════════════════
+   TABLET BREAKPOINT (≤ 1024px)
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+
+    /* ── LAYOUT: Global ── */
+    .vault-layout {
+        flex-direction: column;
+        padding-top: 15vh;
+    }
+    .vault-sticky-side {
+        width: 100%;
+        position: relative;
+        height: auto;
+        top: 0;
+        border-right: none;
+        padding: 0 5vw 5vh;
+        text-align: center;
+    }
+    .vault-scroll-side {
+        width: 100%;
+        padding: 0 5vw 10vh;
+    }
+
+    /* ── Stealth Overlay ── */
+    .stealth-overlay {
+        align-items: flex-start !important;
+        overflow-y: auto;
+        padding-top: 15vh;
+        padding-bottom: 15vh;
+    }
+    .stealth-overlay-links a {
+        font-size: min(6vw, 2.5rem);
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+        line-height: 1.2;
+    }
+    .stealth-overlay-links {
+        gap: 30px;
+        margin: auto;
+    }
+
+    /* ── Engagements Grid ── */
+    .engagement-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+/* ═════════════════════════════════════════════════════════
+   MOBILE BREAKPOINT (≤ 768px)
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* ── GLOBAL OVERFLOW KILL ── */
+    .shapes-container {
+        display: none !important;
+    }
+
+    /* ── NAVBAR ── */
+    .nav-content {
+        padding: 15px 5vw;
+    }
+    .nav-logo-img {
+        height: 28px !important;
+    }
+
+    /* ── STEALTH OVERLAY MENU ── */
+    .stealth-overlay-links {
+        gap: 22px;
+        padding: 0 5vw;
+    }
+    .stealth-overlay-links a {
+        font-size: min(5vw, 1.5rem);
+    }
+    .close-overlay-btn {
+        top: 20px;
+        right: 5vw;
+        font-size: 0.8rem;
+        /* Enlarge tap target for mobile */
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ── FOOTER (inline styles in layout, override here) ── */
+    footer {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 15px;
+        padding: 30px 5vw !important;
+    }
+    footer > div {
+        justify-content: center !important;
+    }
+
+    /* ── HOME PAGE: HERO ── */
+    .hero-logo-wrapper img.glowing-logo {
+        width: 90vw !important;
+    }
+    .aura-hero {
+        width: 80%;
+        height: 60%;
+        filter: blur(40px);
+    }
+    .hero-statement {
+        font-size: 1.1rem !important;
+        padding: 0 2vw;
+    }
+
+    /* ── HOME PAGE: THE STANCE ── */
+    .stance-title {
+        font-size: 2.2rem !important;
+    }
+    .huge-title-small {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+    }
+
+    /* ── HOME PAGE: DISCIPLINE LIST ── */
+    .discipline-item {
+        font-size: min(7vw, 1.8rem);
+        padding: 20px 0;
+        flex-direction: row;
+        align-items: flex-start;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+        line-height: 1.2;
+    }
+    .discipline-num {
+        font-size: 0.9rem;
+        margin-right: 15px;
+        flex-shrink: 0;
+        margin-top: 5px;
+    }
+
+    /* ── HOME PAGE: MARQUEE ── */
+    .kinetic-marquee-container {
+        transform: rotate(-4deg) scale(1.05);
+        width: 120vw;
+        margin-left: -10vw;
+    }
+    .marquee-item {
+        font-size: 1.5rem;
+        padding: 0 20px;
+        gap: 10px;
+    }
+    .m-flag {
+        font-size: 1.5rem;
+    }
+    .marquee-tape {
+        padding: 15px 0;
+    }
+    .marquee-tape-top,
+    .marquee-tape-bottom {
+        padding: 18px 0;
+    }
+
+    /* ── HOME PAGE: CTA ── */
+    .gateway-cta {
+        padding: 12vh 5vw;
+    }
+    .gateway-cta .stance-title {
+        font-size: 2rem !important;
+    }
+
+    /* ── HOME PAGE: Services Intro ── */
+    #services-intro .container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    #services-intro .services-list {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .service-item {
+        margin-bottom: 2rem;
+    }
+
+    /* ── VAULT: TYPOGRAPHY ── */
+    .huge-heading {
+        font-size: 3rem !important;
+    }
+    .sub-heading {
+        font-size: 1.6rem;
+    }
+    .v-manifesto-hook {
+        font-size: 1.6rem;
+    }
+    .v-manifesto-challenge {
+        font-size: 1rem;
+    }
+    .v-manifesto-rejection {
+        font-size: 0.8rem;
+        padding: 12px 12px 12px 15px;
+    }
+
+    /* ── VAULT: FORM ── */
+    .form-engagement-card {
+        padding: 35px 20px !important;
+    }
+    .form-control {
+        font-size: 1rem;
+        padding: 15px 15px;
+    }
+    .form-label {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+    .form-group::after {
+        /* Move crosshair outside the cramped mobile input */
+        display: none;
+    }
+
+    /* ── VAULT: CUSTOM DROPDOWN ── */
+    .custom-options {
+        max-height: 250px;
+        overflow-y: auto;
+    }
+    .custom-option {
+        padding: 14px 15px;
+        font-size: 1rem;
+    }
+
+    /* ── VAULT: AURA ── */
+    .filter-pulse-aura {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* ── ENGAGEMENTS PAGE ── */
+    .engagements-hero {
+        padding: 15vh 5vw 3vh;
+    }
+    .engagement-card {
+        grid-template-columns: 1fr !important;
+        gap: 25px;
+        padding: 30px 20px;
+    }
+    .e-title {
+        font-size: 1.8rem;
+    }
+    .e-blurred-price-wrapper {
+        font-size: 2.5rem;
+    }
+    .e-giant-arrow {
+        font-size: 2.5rem;
+    }
+    .e-action-area {
+        height: 50px;
+    }
+    .e-blurred-price-wrapper,
+    .e-giant-arrow,
+    .e-hover-text {
+        line-height: 50px;
+    }
+
+    /* ── DOCTRINE / ARCHIVE (generic sections) ── */
+    .gateway-section {
+        padding: 10vh 5vw;
+    }
+
+    /* ── CONTACT ── */
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    .contact-logo-block {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin: 2rem 0 !important;
+    }
+    .contact-info-block {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        margin-top: 1rem !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* ── SPLIT LAYOUTS ── */
+    .layout-split {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .split-left, .split-right {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    /* ── TOC ── */
+    .toc-layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .toc-title-wrapper {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* ── BRAND HEART ── */
+    .heart-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .heart-col {
+        text-align: center;
+    }
+    .heart-col h3 {
+        justify-content: center;
+    }
+
+    /* ── VALUES ── */
+    .values-grid-custom {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* ── CREATIVE SETS ── */
+    .cs-hero-title {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .cs-word-creative, .cs-word-sets {
+        margin-left: 0;
+    }
+    .cs-lists-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    /* ── SPECIAL BUNDLES ── */
+    .sb-title-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .sb-staggered-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .sb-comprehensive, .sb-digital {
+        margin-top: 0;
+    }
+
+    /* ── SELECTED WORKS ── */
+    .sw-hero-text {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* ── TEXT SIZE NORMALIZERS ── */
+    .body-text, .card-text, .value-desc {
+        font-size: 1rem !important;
+    }
+    .hero-top-left {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* ═════════════════════════════════════════════════════════
+   SMALL PHONE BREAKPOINT (≤ 480px)
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+    /* ── Stealth Overlay ── */
+    .stealth-overlay-links a {
+        font-size: 1.2rem;
+    }
+    .stealth-overlay-links {
+        gap: 18px;
+    }
+
+    /* ── HERO ── */
+    .hero-statement {
+        font-size: 0.95rem !important;
+    }
+
+    /* ── DISCIPLINES ── */
+    .discipline-item {
+        font-size: min(8vw, 1.3rem);
+        padding: 15px 0;
+    }
+    .discipline-num {
+        font-size: 0.8rem;
+        margin-right: 10px;
+        margin-top: 4px;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-item {
+        font-size: 1.1rem;
+        padding: 0 12px;
+        gap: 8px;
+    }
+    .m-flag {
+        font-size: 1.2rem;
+    }
+
+    /* ── VAULT ── */
+    .huge-heading {
+        font-size: 2.5rem !important;
+    }
+    .sub-heading {
+        font-size: 1.2rem;
+    }
+    .v-manifesto-hook {
+        font-size: 1.3rem;
+    }
+
+    /* ── ENGAGEMENTS ── */
+    .engagement-card {
+        padding: 25px 15px;
+    }
+    .e-title {
+        font-size: 1.5rem;
+    }
+    .e-blurred-price-wrapper,
+    .e-giant-arrow {
+        font-size: 2rem;
+    }
+
+    /* ── CTA ── */
+    .gateway-cta .stance-title {
+        font-size: 1.6rem !important;
+    }
+}
+
+/* ═════════════════════════════════════════════════════════
+   VERY SMALL PHONE BREAKPOINT (≤ 390px)
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 390px) {
+    .stealth-overlay-links a {
+        font-size: 1rem;
+    }
+    .stealth-overlay-links {
+        gap: 15px;
+    }
+
+    /* Home-page positioning cards are intentionally stacked at phone width. */
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .stat-card {
+        padding: 28px 20px;
+    }
+    .stat-number {
+        font-size: clamp(2.4rem, 14vw, 3.75rem);
+    }
+}
