@@ -1,0 +1,137 @@
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN (MOBILE)
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .huge-title {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+    .section-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+    
+    /* Hero */
+    .hero-top-left {
+        font-size: 0.8rem;
+    }
+    .hero-logo-img {
+        width: 90vw;
+    }
+    .aura-hero {
+        width: 80%;
+        height: 60%;
+        filter: blur(40px);
+    }
+
+    /* TOC */
+    .toc-layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .toc-title-wrapper {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* About Us */
+    .layout-split {
+        flex-direction: column;
+    }
+    .split-left {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .split-right {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    /* Brand Heart */
+    .heart-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .heart-col {
+        text-align: center;
+    }
+    .heart-col h3 {
+        justify-content: center;
+    }
+
+    /* Values */
+    .values-grid-custom {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Services Intro */
+    #services-intro .container {
+        flex-direction: column !important;
+    }
+    .services-title {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .services-list {
+        grid-template-columns: 1fr !important;
+        padding-top: 0 !important;
+    }
+
+    /* Creative Sets */
+    .cs-hero-title {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .cs-word-creative, .cs-word-sets {
+        margin-left: 0;
+    }
+    .cs-lists-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    /* Special Bundles */
+    .sb-title-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .sb-staggered-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .sb-comprehensive, .sb-digital {
+        margin-top: 0; /* Remove stagger on mobile */
+    }
+
+    /* Selected Works */
+    .sw-hero-text {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Contact Us */
+    .contact-logo-block {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin-top: 2rem;
+    }
+    .contact-container {
+        text-align: center;
+    }
+    .contact-info-block {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin-top: 2rem;
+        align-items: center;
+    }
+}

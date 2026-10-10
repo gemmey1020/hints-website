@@ -1,0 +1,355 @@
+/* ════════════════════════════════════════════════════════════
+   HINTS STUDIO — THE VAULT
+   Page-specific styles for vault.blade.php
+   ════════════════════════════════════════════════════════════ */
+
+/* Vault Split Layout */
+.vault-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.vault-sticky-side {
+    width: 45%;
+    padding: 5vh 5vw;
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.vault-sticky-side::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.huge-heading {
+    font-family: 'Bomstad Display', sans-serif;
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: var(--pure-white);
+    letter-spacing: -1px;
+}
+
+.sub-heading {
+    font-family: 'Hakira', sans-serif;
+    font-size: 2.2rem;
+    color: var(--pure-white);
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+.engagement-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 1;
+}
+
+.engagement-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--grad-mint), var(--electric-sky), var(--azure-blue));
+    opacity: 0.3;
+    transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+.engagement-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(180deg, rgba(41, 111, 247, 0.05) 0%, rgba(93, 242, 222, 0.01) 100%);
+    box-shadow: 0 10px 40px rgba(41, 111, 247, 0.1);
+    border-color: rgba(93, 242, 222, 0.1);
+}
+
+.engagement-card:hover::before {
+    opacity: 1;
+    height: 3px;
+    filter: drop-shadow(0 0 10px var(--electric-sky));
+}
+
+.filter-pulse-aura {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 50%; left: 50%;
+    background: radial-gradient(circle, rgba(116, 244, 255, 0.4) 0%, rgba(41, 111, 247, 0.2) 40%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+    animation: extremePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes extremePulse {
+    0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.4; filter: blur(35px); }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; filter: blur(50px); }
+}
+
+.v-manifesto-hook {
+    font-family: 'Hakira', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    color: var(--pure-white);
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.v-manifesto-challenge {
+    font-family: 'Avenir LT Std', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.v-manifesto-rejection {
+    font-family: 'Avenir LT Std', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    border-left: 2px solid var(--signal-cyan);
+    padding-left: 15px;
+    background: rgba(116, 244, 255, 0.02);
+    padding: 15px 15px 15px 20px;
+    border-radius: 0 4px 4px 0;
+}
+
+.v-manifesto-rejection strong {
+    color: var(--signal-cyan);
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.v-manifesto-rejection .system-alert {
+    color: #ff3366;
+    font-weight: bold;
+}
+
+.vault-scroll-side {
+    width: 55%;
+    padding: 5vh 5vw 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.vault-scroll-side::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(7, 19, 36, 0.8) 0%, rgba(0,0,0,0) 80%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.form-engagement-card {
+    padding: 60px 80px;
+    background: linear-gradient(135deg, rgba(7, 19, 36, 0.6), rgba(2, 5, 10, 0.8));
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.95), 
+        0 10px 30px rgba(0, 0, 0, 0.8),
+        0 0 100px rgba(41, 111, 247, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2), 
+        inset 0 -2px 10px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 1px rgba(116, 244, 255, 0.1);
+    transform: translateZ(0);
+}
+
+.form-group {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.form-group::after {
+    content: '[+]';
+    position: absolute;
+    right: 20px;
+    top: 48px;
+    color: rgba(255,255,255,0.15);
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    transition: color 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.form-group:focus-within::after {
+    color: var(--signal-cyan);
+}
+
+.form-label {
+    display: block;
+    font-family: 'Avenir LT Std', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    padding: 18px 20px;
+    color: var(--pure-white);
+    font-family: 'Avenir LT Std', sans-serif;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    background: rgba(116, 244, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.1);
+    border-left: 2px solid var(--signal-cyan);
+    box-shadow: inset 20px 0 30px -20px rgba(116, 244, 255, 0.2);
+}
+
+.form-group:focus-within .form-label {
+    color: var(--signal-cyan);
+    letter-spacing: 5px;
+}
+
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-options {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background: rgba(2, 5, 10, 0.95);
+    border: 1px solid rgba(116, 244, 255, 0.2);
+    border-left: 2px solid var(--signal-cyan);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.custom-options.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.custom-option {
+    padding: 15px 20px;
+    font-family: 'Avenir LT Std', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.custom-option:last-child {
+    border-bottom: none;
+}
+
+.custom-option:hover {
+    background: rgba(116, 244, 255, 0.1);
+    color: var(--pure-white);
+    padding-left: 25px;
+}
+
+.vault-seal {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.vault-seal p {
+    font-family: 'Avenir LT Std', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.btn-submit-wrapper {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.v-step {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: vFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.v-step-0 { animation-delay: 0.0s; animation-duration: 0.5s; }
+.v-step-1 { animation-delay: 0.3s; }
+.v-step-2 { animation-delay: 0.5s; }
+
+@keyframes vFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .vault-layout { flex-direction: column; padding-top: 15vh; }
+    .vault-sticky-side { width: 100%; position: relative; height: auto; top: 0; border-right: none; padding: 0 5vw 5vh; text-align: center; }
+    .vault-scroll-side { width: 100%; padding: 0 5vw 10vh; }
+    .huge-heading { font-size: 4rem; }
+}
+@media (max-width: 768px) {
+    .form-engagement-card { padding: 40px 20px; }
+    .huge-heading { font-size: 3.5rem; }
+}

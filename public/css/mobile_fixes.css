@@ -521,3 +521,40 @@ html, body {
         font-size: clamp(2.4rem, 14vw, 3.75rem);
     }
 }
+
+/* ── DOCTRINE: PHONE READING RHYTHM ── */
+@media (max-width: 480px) {
+    .editorial-about {
+        gap: 32px;
+        margin-top: 36px;
+    }
+    .editorial-about p {
+        font-size: 1rem !important;
+        line-height: 1.75 !important;
+    }
+    .director-stance {
+        padding: 28px 22px;
+        margin: 52px 0;
+    }
+    .director-quote {
+        font-size: 1.15rem;
+        line-height: 1.65;
+    }
+    .origin-timeline {
+        margin: 48px auto 64px;
+        padding-left: 28px;
+    }
+    .timeline-event {
+        margin-bottom: 36px;
+    }
+    .timeline-event::before {
+        left: -35px;
+    }
+    .timeline-date {
+        font-size: 1.5rem;
+    }
+    .timeline-desc {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
